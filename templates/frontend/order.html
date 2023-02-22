@@ -32,16 +32,16 @@
             <p class="text-4xl font-bold sm:text-4xl md:text-4xl lg:text-6xl mb-5"><span class="italic text-green-800 mr-2">#</span>Order</p>
             <form action="/__instafood/order" method="POST">
                 <input value="{{ item[0] }}" name="id" hidden>
-                <p class="text-xl lg:text-2xl md:text-2xl my-2">Your Full Name:</p>
+                <p class="text-xl lg:text-2xl md:text-2xl my-2">Votre Nom et Prènom:</p>
                 <input name="name" placeholder="Example: John Doe" minlength="4" maxlength="36" class="p-2 w-full rounded drop-shadow outline-none" required><br>
-                <p class="text-xl lg:text-2xl md:text-2xl my-2">Your Phone Number:</p>
+                <p class="text-xl lg:text-2xl md:text-2xl my-2">Numéro de Téléphone:</p>
                 <input name="phonenumber" placeholder="Example: 22 222 222" class="p-2 w-full rounded drop-shadow outline-none" minlength="8" maxlength="24" required><br>
-                <p class="text-xl lg:text-2xl md:text-2xl my-2">Delivery Address:</p>
+                <p class="text-xl lg:text-2xl md:text-2xl my-2">Adresse de livraison:</p>
                 <textarea name="address" placeholder="123 Street, City." class="p-2 w-full rounded drop-shadow outline-none" minlength="2" maxlength="255" required></textarea><br>
-                <p class="text-xl lg:text-2xl md:text-2xl my-2">Quantity:</p>
+                <p class="text-xl lg:text-2xl md:text-2xl my-2">Quantité:</p>
                 <input type="number" name="quantity" value="1" max="30" class="p-2 w-full rounded drop-shadow outline-none" required><br>
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                <button type="submit" class="w-full my-4 lg:my-8 md:my-8 bg-green-600 p-4 text-white rounded drop-shadow hover:scale-105 hover:drop-shadow-lg duration-300">Place Order</button>
+                <button type="submit" class="w-full my-4 lg:my-8 md:my-8 bg-green-600 p-4 text-white rounded drop-shadow hover:scale-105 hover:drop-shadow-lg duration-300">Commander</button>
             </form>
         </div>
         <div class="bg-white rounded drop-shadow">
