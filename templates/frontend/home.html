@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    {% include 'frontend/header.html' %}
+</head>
+<body class="select-none">
+    <style>
+        body {
+            background-color: rgb(245, 235, 220);
+        }
+        .instafood--bg-image {
+            height: 55vh;
+            background-position: 100%;
+        }
+        @keyframes instafood--typing {
+            from { opacity: 0; margin-right: 100px; }
+            to { opacity: 1 }
+        }
+
+        .instafood--typing-animation {
+            overflow: hidden;
+            opacity: 0;
+            animation: instafood--typing 1s ease-in-out forwards;
+        }
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: none;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #157F3D;
+            border-radius: 0px 0px 10px 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #137f3b;
+        }
+        .instafood--menu-slider-devider-top-6546546 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+            z-index: 1;
+        }
+
+        .instafood--menu-slider-devider-top-6546546 svg {
+            position: relative;
+            display: block;
+            width: calc(121% + 1.3px);
+            height: 47px;
+        }
+
+        .instafood--menu-slider-devider-top-6546546 .shape-fill {
+            fill: #F5EBDC;
+        }
+        .instafood--skeleton {
+            animation: instafood--skeleton-loading 1s linear infinite alternate;
+        }
+
+        @keyframes instafood--skeleton-loading {
+        0% {
+            background-color: hsl(200, 20%, 80%);
+        }
+        100% {
+            background-color: hsl(200, 20%, 95%);
+        }
+        }
+    </style>
+    {% include 'frontend/navbar.html' %}
+    <div class="bg-[url('/static/img/home-bg.jpg')] bg-no-repeat w-full bg-cover p-10 instafood--bg-image flex justify-center items-center flex-col relative">
+        <p class="text-white text-center text-4xl md:text-6xl font-bold drop-shadow-xl lg:text-8xl">{{ slogan_title }}</p>
+        <p class="text-white text-center text-lg lg:text-4xl md:text-2xl mt-10 drop-shadow-xl instafood--typing-animation">
+            <strong>Instafood:</strong>
+            <span class="dashed italic">{{ slogan }}</span>
+        </p>
+        <a href="#menu">
+            <button class="text-white bg-none p-3 rounded absolute bottom-5 hover:bg-green-600 hover:text-white duration-300 hover:shadow-xl opacity-50 hover:opacity-100 font-bold right-10 z-10">Explore Our Menu</button>
+        </a>
+        <div class="instafood--menu-slider-devider-top-6546546">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </div>
+    <div id="menu" class="m-5 lg:m-10 md:m-10">
+        <p class="text-4xl font-bold sm:text-4xl md:text-4xl lg:text-6xl mb-5"><span class="italic text-green-800 mr-2">#</span>Menu</p>
+        <div class="flex flex-wrap">
+            {% if menu: %}
+            {% for i in range(n_of_menu_items) %}
+            <a href="/order?id={{ menu[i][0] }}">
+                <div class="bg-white shadow rounded-xl w-72 hover:scale-105 duration-300 hover:shadow-xl cursor-pointer ml-5 mt-5">
+                    <div class="bg-[url('{{ menu[i][4] }}')] instafood--skeleton bg-no-repeat bg-cover w-full h-48 rounded-tl-xl rounded-tr-xl"></div>
+                    <div class="p-5">
+                        <p class="font-bold text-2xl">{{ menu[i][1] }}</p>
+                        <p style="display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; -webkit-line-clamp: 5; font-size: clamp(1rem, 1vw, 1.5rem);">{{ menu[i][3] }}</p>
+                        <p class="text-xl text-right mt-5 font-bold">{{ menu[i][5] }} DT</p>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+            <div class="w-full flex flex-col items-center"><a href="/menu" class="bg-green-600 p-2 rounded text-white w-2/4 lg:w-1/12 md:w-1/4 text-center mt-5 hover:scale-105 hover:drop-shadow-lg duration-300">View more..</a></div>
+            {% else: %}
+            <p>No menu items have been added yet, check back again later.</p>
+            {% endif %}
+    </div>
+    {% include 'frontend/footer.html' %}
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/vendor/@picocss/pico.min.css">
+    <link rel="stylesheet" href="/static/css/base.css">
+    <script src="/static/js/vendor/@instafood/theme.js"></script>
+    <title>InstaFood</title>
+    <link rel="icon" type="image/x-icon" href="/static/img/favicon.ico">
+</head>
+<body>
+    <main class="container">
+        <article>{{ message }}</article>
+        {% if url: %}
+        <a href="{{ url }}" role="button">Go Back</a>
+        {% endif %}
+    </main>
+    <button onclick="toggleTheme();" class="contrast switcher theme-switcher" aria-label="Toggle Dark Mode"></button>
+</body>
+</html>
