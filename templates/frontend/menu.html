@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    {% include 'frontend/header.html' %}
+</head>
+<body class="select-none">
+    <style>
+        body {
+            background-color: rgb(245, 235, 220);
+        }
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: none;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #16A34A;
+            border-radius: 0px 0px 10px 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #137f3b;
+        }
+    </style>
+    {% include 'frontend/navbar.html' %}
+    
+    <div class="lg:p-10 md:p-10 sm:p-2 p-2">
+        <div class="bg-[url('/static/img/menu-bg.jpg')] w-full h-48 lg:h-96 md:h-96 rounded-xl drop-shadow-xl flex flex-col justify-center items-center bg-no-repeat bg-cover">
+            <p class="text-6xl lg:text-8xl md:text-6xl text-white font-bold drop-shadow-xl"><span class="italic text-green-500 mr-2">#</span>Menu</p>
+        </div>
+        <br>
+        {% if not menu: %}
+            <p class="text-2xl text-center">No menu items have been added yet, check back again later :/</p>
+        {% else: %}
+        <!-- Food Category -->
+        <div id="pizza" class="my-4">
+            <p class="text-2xl font-bold sm:text-xl md:text-4xl lg:text-4xl mb-5"><span class="italic text-green-800 mr-2">~</span>Pizza</p>
+                <div class="flex flex-wrap">
+                    {% for item in menu %}
+                    {% if item[2] == "pizza": %}
+                    <a href="/order?id={{ item[0] }}">
+                        <div class="bg-white shadow rounded-xl w-72 hover:scale-105 duration-300 hover:shadow-xl cursor-pointer ml-5 mt-5">
+                            <div class="bg-[url('{{ item[4] }}')] instafood--skeleton bg-no-repeat bg-cover w-full h-48 rounded-tl-xl rounded-tr-xl"></div>
+                            <div class="p-5">
+                                <p class="font-bold text-2xl">{{ item[1] }}</p>
+                                <p style="display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; -webkit-line-clamp: 5; font-size: clamp(1rem, 1vw, 1.5rem);">{{ item[3] }}</p>
+                                <p class="text-xl text-right mt-5 font-bold">{{ item[5] }} DT</p>
+                            </div>
+                        </div>
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+                </div>                    
+        </div>
+        <!-- Food Category -->
+        
+        <div id="burger" class="my-4">
+            <p class="text-2xl font-bold sm:text-xl md:text-4xl lg:text-4xl mb-5"><span class="italic text-green-800 mr-2">~</span>Burgers</p>
+                <div class="flex flex-wrap">
+                    {% for item in menu %}
+                    {% if item[2] == "burger": %}
+                    <a href="/order?id={{ item[0] }}">
+                        <div class="bg-white shadow rounded-xl w-72 hover:scale-105 duration-300 hover:shadow-xl cursor-pointer ml-5 mt-5">
+                            <div class="bg-[url('{{ item[4] }}')] instafood--skeleton bg-no-repeat bg-cover w-full h-48 rounded-tl-xl rounded-tr-xl"></div>
+                            <div class="p-5">
+                                <p class="font-bold text-2xl">{{ item[1] }}</p>
+                                <p style="display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; -webkit-line-clamp: 5; font-size: clamp(1rem, 1vw, 1.5rem);">{{ item[3] }}</p>
+                                <p class="text-xl text-right mt-5 font-bold">{{ item[5] }} DT</p>
+                            </div>
+                        </div>
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+                </div>                    
+        </div>
+        
+        <!-- Food Category -->
+        <div id="pasta" class="my-4">
+            <p class="text-2xl font-bold sm:text-xl md:text-4xl lg:text-4xl mb-5"><span class="italic text-green-800 mr-2">~</span>Pasta</p>
+                <div class="flex flex-wrap">
+                    {% for item in menu %}
+                    {% if item[2] == "pasta": %}
+                    <a href="/order?id={{ item[0] }}">
+                        <div class="bg-white shadow rounded-xl w-72 hover:scale-105 duration-300 hover:shadow-xl cursor-pointer ml-5 mt-5">
+                            <div class="bg-[url('{{ item[4] }}')] instafood--skeleton bg-no-repeat bg-cover w-full h-48 rounded-tl-xl rounded-tr-xl"></div>
+                            <div class="p-5">
+                                <p class="font-bold text-2xl">{{ item[1] }}</p>
+                                <p style="display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; -webkit-line-clamp: 5; font-size: clamp(1rem, 1vw, 1.5rem);">{{ item[3] }}</p>
+                                <p class="text-xl text-right mt-5 font-bold">{{ item[5] }} DT</p>
+                            </div>
+                        </div>
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+                </div>                    
+        </div>
+        
+        <!-- Food Category -->
+        <div id="tunisia-fastfood" class="my-4">
+            <p class="text-2xl font-bold sm:text-xl md:text-4xl lg:text-4xl mb-5"><span class="italic text-green-800 mr-2">~</span>Tunisian Fast Food</p>
+                <div class="flex flex-wrap">
+                    {% for item in menu %}
+                    {% if item[2] == "tunisia-fastfood": %}
+                    <a href="/order?id={{ item[0] }}">
+                        <div class="bg-white shadow rounded-xl w-72 hover:scale-105 duration-300 hover:shadow-xl cursor-pointer ml-5 mt-5">
+                            <div class="bg-[url('{{ item[4] }}')] instafood--skeleton bg-no-repeat bg-cover w-full h-48 rounded-tl-xl rounded-tr-xl"></div>
+                            <div class="p-5">
+                                <p class="font-bold text-2xl">{{ item[1] }}</p>
+                                <p style="display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; -webkit-line-clamp: 5; font-size: clamp(1rem, 1vw, 1.5rem);">{{ item[3] }}</p>
+                                <p class="text-xl text-right mt-5 font-bold">{{ item[5] }} DT</p>
+                            </div>
+                        </div>
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+                </div>                    
+        </div>
+        
+        <!-- Food Category -->
+        <div id="drink" class="my-4">
+            <p class="text-2xl font-bold sm:text-xl md:text-4xl lg:text-4xl mb-5"><span class="italic text-green-800 mr-2">~</span>Drinks</p>
+                <div class="flex flex-wrap">
+                    {% for item in menu %}
+                    {% if item[2] == "drink": %}
+                    <a href="/order?id={{ item[0] }}">
+                        <div class="bg-white shadow rounded-xl w-72 hover:scale-105 duration-300 hover:shadow-xl cursor-pointer ml-5 mt-5">
+                            <div class="bg-[url('{{ item[4] }}')] instafood--skeleton bg-no-repeat bg-cover w-full h-48 rounded-tl-xl rounded-tr-xl"></div>
+                            <div class="p-5">
+                                <p class="font-bold text-2xl">{{ item[1] }}</p>
+                                <p style="display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; -webkit-line-clamp: 5; font-size: clamp(1rem, 1vw, 1.5rem);">{{ item[3] }}</p>
+                                <p class="text-xl text-right mt-5 font-bold">{{ item[5] }} DT</p>
+                            </div>
+                        </div>
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+                </div>                    
+        </div>
+        
+        <!-- Food Category -->
+        <div id="dessert" class="my-4">
+            <p class="text-2xl font-bold sm:text-xl md:text-4xl lg:text-4xl mb-5"><span class="italic text-green-800 mr-2">~</span>Desserts</p>
+                <div class="flex flex-wrap">
+                    {% for item in menu %}
+                    {% if item[2] == "dessert": %}
+                    <a href="/order?id={{ item[0] }}">
+                        <div class="bg-white shadow rounded-xl w-72 hover:scale-105 duration-300 hover:shadow-xl cursor-pointer ml-5 mt-5">
+                            <div class="bg-[url('{{ item[4] }}')] instafood--skeleton bg-no-repeat bg-cover w-full h-48 rounded-tl-xl rounded-tr-xl"></div>
+                            <div class="p-5">
+                                <p class="font-bold text-2xl">{{ item[1] }}</p>
+                                <p style="display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; -webkit-line-clamp: 5; font-size: clamp(1rem, 1vw, 1.5rem);">{{ item[3] }}</p>
+                                <p class="text-xl text-right mt-5 font-bold">{{ item[5] }} DT</p>
+                            </div>
+                        </div>
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+                </div>                    
+        </div>
+        
+        <!-- Food Category -->
+        <div id="others" class="my-4">
+            <p class="text-2xl font-bold sm:text-xl md:text-4xl lg:text-4xl mb-5"><span class="italic text-green-800 mr-2">~</span>Other Food</p>
+                <div class="flex flex-wrap">
+                    {% for item in menu %}
+                    {% if item[2] not in ["pizza", "burger", "pasta", "tunisia-fastfood", "drink", "dessert"]: %}
+                    <a href="/order?id={{ item[0] }}">
+                        <div class="bg-white shadow rounded-xl w-72 hover:scale-105 duration-300 hover:shadow-xl cursor-pointer ml-5 mt-5">
+                            <div class="bg-[url('{{ item[4] }}')] instafood--skeleton bg-no-repeat bg-cover w-full h-48 rounded-tl-xl rounded-tr-xl"></div>
+                            <div class="p-5">
+                                <p class="font-bold text-2xl">{{ item[1] }}</p>
+                                <p style="display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; -webkit-line-clamp: 5; font-size: clamp(1rem, 1vw, 1.5rem);">{{ item[3] }}</p>
+                                <p class="text-xl text-right mt-5 font-bold">{{ item[5] }} DT</p>
+                            </div>
+                        </div>
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+                </div>                    
+        </div>
+        {% endif %}
+    </div>
+
+    {% include 'frontend/footer.html' %}
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    {% include 'frontend/header.html' %}
+</head>
+<body class="select-none">
+    <style>
+        body {
+            background-color: rgb(245, 235, 220);
+        }
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: none;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #16A34A;
+            border-radius: 0px 0px 10px 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #137f3b;
+        }
+    </style>
+    {% include 'frontend/navbar.html' %}
+    
+    <div class="grid-cols-2 m-2 lg:m-5 md:m-5 p-4 md:p-12 lg:p-14 h-fit lg:grid md:grid sm:flex flex-wrap">
+        <div class="pr-0 lg:pr-48 md:pr-48">
+            <p class="text-4xl font-bold sm:text-4xl md:text-4xl lg:text-6xl mb-5"><span class="italic text-green-800 mr-2">#</span>Order</p>
+            <form action="/__instafood/order" method="POST">
+                <input value="{{ item[0] }}" name="id" hidden>
+                <p class="text-xl lg:text-2xl md:text-2xl my-2">Your Full Name:</p>
+                <input name="name" placeholder="Example: John Doe" minlength="4" maxlength="36" class="p-2 w-full rounded drop-shadow outline-none" required><br>
+                <p class="text-xl lg:text-2xl md:text-2xl my-2">Your Phone Number:</p>
+                <input name="phonenumber" placeholder="Example: 22 222 222" class="p-2 w-full rounded drop-shadow outline-none" minlength="8" maxlength="24" required><br>
+                <p class="text-xl lg:text-2xl md:text-2xl my-2">Delivery Address:</p>
+                <textarea name="address" placeholder="123 Street, City." class="p-2 w-full rounded drop-shadow outline-none" minlength="2" maxlength="255" required></textarea><br>
+                <p class="text-xl lg:text-2xl md:text-2xl my-2">Quantity:</p>
+                <input type="number" name="quantity" value="1" max="30" class="p-2 w-full rounded drop-shadow outline-none" required><br>
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <button type="submit" class="w-full my-4 lg:my-8 md:my-8 bg-green-600 p-4 text-white rounded drop-shadow hover:scale-105 hover:drop-shadow-lg duration-300">Place Order</button>
+            </form>
+        </div>
+        <div class="bg-white rounded drop-shadow">
+            <div class="bg-[url('{{ item[4] }}')] h-48 lg:h-96 w-full bg-cover drop-shadow rounded-tl rounded-tr bg-center"></div>
+            <div class="p-5">
+                <p class="text-2xl font-bold">{{ item[1] }}</p>
+                <p>{{ item[3] }}</p>
+                <p class="text-2xl mt-4">Total:<span class="font-bold"> {{ item[5] }} DT</span></p>
+            </div>
+        </div>
+    </div>
+    {% include 'frontend/footer.html' %}
+</body>
+</html>

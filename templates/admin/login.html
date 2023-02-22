@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include 'common/admin_header.html' %}
+</head>
+<body>
+    <main class="container">
+        <h1>Login into InstaFood admin.</h1>
+        <form method="POST" action="/admin/login">
+            <input type="text" value="admin" disabled>
+            <input type="password" name="password" placeholder="Password">
+            <fieldset>
+                <label for="robot">
+                  <input type="checkbox" id="robot" name="robot" required>
+                  I am not a robot
+                </label>
+              </fieldset>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <button type="submit">Login</button>
+        </form>
+    </main>
+    <button onclick="toggleTheme();" class="contrast switcher theme-switcher" aria-label="Toggle Dark Mode"></button>
+</body>
+</html>

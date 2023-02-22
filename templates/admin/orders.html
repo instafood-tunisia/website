@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="300;">
+    {% include 'common/admin_header.html' %}
+</head>
+<body>
+    <div class="container-fluid">{% include 'admin/navbar.html' %}</div>
+    <main class="container">
+        <h1>InstaFood Orders.</h1>
+        {% if orders == [] %}
+        <p>No orders yet.</p>
+        {% else: %}
+        <figure>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Customer Name</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Item</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody>   
+                {% for order in orders: %}
+                <tr>
+                    <th scope="row">{{ order[0] }}</th>
+                    <td>{{ order[1] }}</td>
+                    <td>{{ order[2] }}</td>
+                    <td>{{ order[3] }}</td>
+                    <td>{{ order[4] }}</td>
+                    <td>{{ order[5] }}</td>
+                    <td>{{ order[7] }}</td>
+                    <td>{{ order[6] }} DT</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </figure>
+        {% endif %}
+        <button onclick="window.location.reload();" class="outline">Refresh</button> 
+    </main>
+    <button onclick="toggleTheme();" class="contrast switcher theme-switcher" aria-label="Toggle Dark Mode"></button>
+</body>
+</html>

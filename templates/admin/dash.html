@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include 'common/admin_header.html' %}
+</head>
+<body>
+    <div class="container-fluid">{% include 'admin/navbar.html' %}</div>
+    <main class="container">
+        <h1>Welcome to the InstaFood admin UI.</h1>
+        <p>You can view your orders by clicking <code>Orders</code> and you can manage your menu by clicking on <code>Menu</code>.</p>
+        <div class="grid">
+            <a href="/admin/menu" role="button" class="secondary">Menu</a>
+            <a href="/admin/orders" role="button" class="secondary">Orders</a>
+        </div>
+        <div class="grid">
+            <article><h1 style="margin-bottom: 20px;"><ins>{{ orders }}</ins></h1><h3 style="margin-bottom: 0;">You have {{ orders }} order(s).</h3></article>
+            <article><h1 style="margin-bottom: 20px;"><ins>{{ menu_items }}</ins></h1><h3 style="margin-bottom: 0;">You have {{ menu_items }} menu item(s).</h3></article>
+        </div>
+        <blockquote style="margin-top: 0;">
+            {{ quote }}
+            <footer>
+              <cite>- {% if not quote_author: %}A Random Person{% endif %}{{ quote_author }} | A Random Quote</cite>
+            </footer>
+        </blockquote>
+    </main>
+    <button onclick="toggleTheme();" class="contrast switcher theme-switcher" aria-label="Toggle Dark Mode"></button>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    {% include 'frontend/header.html' %}
+</head>
+<body class="select-none">
+    <style>
+        body {
+            background-color: rgb(245, 235, 220);
+        }
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: none;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #16A34A;
+            border-radius: 0px 0px 10px 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #137f3b;
+        }
+    </style>
+    {% include 'frontend/navbar.html' %}
+    
+    <div class="flex flex-col w-full justify-center items-center p-10 mt-5 text-center mb-10">
+        <img src="/static/img/done.webp" class="w-24 lg:w-36 md:w-32">
+        <div class="w-full lg:w-3/4 md:w-3/4">
+            <p class="text-2xl lg:text-6xl md:text-4xl font-bold mb-5">Order Placed</p>
+            <p class="mb-5 text-base lg:text-lg md:text-lg">Thank you for placing your order with InstaFood. We appreciate your business and are excited to prepare your delicious meal.</p>
+            <p class="text-base lg:text-lg md:text-lg">Our team is working hard to ensure that your order is carefully prepared and packaged for pick-up or delivery as soon as possible. You can expect to be contacted shortly with more information about the status of your order and an estimated time of delivery or pick-up.</p>
+        </div>
+        <a href="/" class="bg-green-600 p-4 rounded text-white mt-4 hover:scale-105 duration-300">Return Home</a>
+    </div>
+    {% include 'frontend/footer.html' %}
+</body>
+</html>

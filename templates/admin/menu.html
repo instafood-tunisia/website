@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include 'common/admin_header.html' %}
+</head>
+<body>
+    <style>
+        .menu-item-img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: 200ms;
+            cursor: pointer;
+        }
+        .menu-item-img:hover {
+            transform: scale(2);
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+            background-color: var(--primary);
+        }
+    </style>
+    <div class="container-fluid">{% include 'admin/navbar.html' %}</div>
+    <main class="container">
+        <h1>InstaFood Menu.</h1>
+        <h2>Add new items.</h2>
+        <form method="POST" action="/admin/menu/add" enctype="multipart/form-data">
+            <div class="grid">
+                <input placeholder="Item Name" name="name"  minlength="2" maxlength="24" required>
+                
+            </div>
+            <div class="grid">
+                <input placeholder="Item Price" name="price" type="number" required>
+                <select name="category" required>
+                    <option value="pizza">Pizza</option>
+                    <option value="burger">Burgers</option>
+                    <option value="pasta">Pasta</option>
+                    <option value="tunisia-fastfood">Tunisian Fast Food</option>
+                    <option value="drink">Drinks</option>
+                    <option value="dessert">Desserts</option>
+                    <option value="others" selected>Uncategorized</option>
+                </select>
+                <input name="image" type="file" accept="image/*" required>
+            </div>
+            <textarea placeholder="Item Description" name="description"  minlength="100" maxlength="1200" required></textarea>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" hidden>
+            <button type="submit">Add item to menu</button>
+        </form>
+        <h2>Remove item from menu.</h2>
+        <form method="POST" action="/admin/menu/remove">
+            <input placeholder="Item ID" name="id"  type="number" required>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" hidden>
+            <button type="submit" class="outline">Delete</button>
+        </form>
+        <h2>Menu Items</h2>
+        {% if menu == [] %}
+        <p>No menu items added yet.</p>
+        {% else: %}
+        <figure>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Item Name</th>
+                    <th scope="col">Item Description</th>
+                    <th scope="col">Item Category</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>   
+                {% for item in menu: %}
+                <tr>
+                    <th scope="row">{{ item[0] }}</th>
+                    <td>{{ item[1] }}</td>
+                    <td>{{ item[3] }}</td>
+                    <td>{{ item[2] }}</td>
+                    <td><img src="{{ item[4] }}" class="menu-item-img"></td>
+                    <td>{{ item[5] }} DT</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </figure>
+        {% endif %}
+    </main>
+    <button onclick="toggleTheme();" class="contrast switcher theme-switcher" aria-label="Toggle Dark Mode"></button>
+</body>
+</html>

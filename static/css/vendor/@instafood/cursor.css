@@ -1,0 +1,20 @@
+:root {
+    --cursor-normal: url('/static/img/cursor/normal.png');
+    --cursor-pointer: url('/static/img/cursor/pointer.ico');
+}
+
+.cursor-pointer {
+    cursor: url('/static/img/cursor/pointer.png'), auto !important;
+}
+
+.cursor-normal {
+    cursor: url('/static/img/cursor/normal.png'), auto;
+}
+
+* {
+    cursor: url('/static/img/cursor/normal.png'), auto;
+}
+
+a, button {
+    cursor: url('/static/img/cursor/pointer.png'), auto !important;
+}
