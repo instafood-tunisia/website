@@ -1,23 +1,43 @@
 # InstaFood's Website
 
-Requirements:
+InstaFood's Website is a simple Flask-Sqlite3 food ordering website. This website allows users to order food items online and have them delivered to their location.
 
-- Python Version <3.6
+## Requirements:
+
+To use the InstaFood Website, you must have Python version 3.6 or earlier installed on your machine.
 
 ## How to install
 
-Clone the repository:
+To install the InstaFood's Website and run it locally, follow these steps:
+
+1. Clone the repository:
 
 ```sh
 git clone https://github.com/instafood-tunisia/website
 ```
 
-Install pip requirements:
+2. Install dependencies:
 
-`pip install flask flask-wtf waitress`
+```sh
+pip install flask flask-wtf waitress
+```
 
-Start the web-server:
+3. Start the web-server:
 
-`PASSWORD="admin_password" python3 .`
+```sh
+PASSWORD="admin_password" python3 .
+```
 
-TODO: Better Documentation
+Substitute the `admin_password` with the preferred password for the admin account.
+
+## Usage:
+
+Once you setup everything, you can access it through your web browser by navigating to http://localhost:6969.
+
+From there, you can browse the available food items, select the items you want to order, and place your order. You can also view your order history, track the status of your current order, and update your account information.
+
+In addition to placing orders and managing account information, you can also view all orders and manage menu items by accessing the admin panel at http://localhost:6969/admin. From the admin panel, you can view and manage all orders placed on the website, as well as add, remove, or update menu items. Note that you will need to log in as an admin with the correct credentials to access the admin panel.
+
+## Authors:
+
+This web app was made by [@akatiggerx04](https://github.com/akatiggerx04) and salimslamadev.
