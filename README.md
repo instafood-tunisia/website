@@ -8,7 +8,9 @@ Requirements:
 
 Clone the repository:
 
-`git clone https://github.com/instafood-tunisia/website`
+```sh
+git clone https://github.com/instafood-tunisia/website
+```
 
 Install pip requirements:
 
