@@ -4,7 +4,7 @@ InstaFood's Website is a simple Flask-Sqlite3 food ordering website. This websit
 
 ## Requirements:
 
-To use the InstaFood Website, you must have Python version 3.6 or earlier installed on your machine.
+To use the InstaFood Website, you must have Python version 3.6 or later installed on your machine.
 
 ## How to install
 
