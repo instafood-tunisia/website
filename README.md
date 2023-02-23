@@ -38,6 +38,6 @@ From there, you can browse the available food items, select the items you want t
 
 In addition to placing orders and managing account information, you can also view all orders and manage menu items by accessing the admin panel at http://localhost:6969/admin. From the admin panel, you can view and manage all orders placed on the website, as well as add, remove, or update menu items. Note that you will need to log in as an admin with the correct credentials to access the admin panel.
 
-## Authors:
+## Authors and License:
 
-This web app was made by [@akatiggerx04](https://github.com/akatiggerx04) and salimslamadev.
+The InstaFood Website was developed by [@akatiggerx04](https://github.com/akatiggerx04) with contributions from @salimslamadev. The code is licensed under the AGPL license, which permits anyone to use, modify, and distribute the code, including the original author. However, any modifications made to the code must also be licensed under AGPL, and the source code must be made available to anyone who uses the software. Please note that the images used in the website are owned by InstaFood and are not included in the AGPL license.
